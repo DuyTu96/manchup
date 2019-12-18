@@ -1,0 +1,18 @@
+{
+  "name": "Deadline",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Duy Tu <duytuhubt@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
