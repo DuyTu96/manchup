@@ -21,6 +21,20 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    private function getSubCategories($parent_id, $ignore_id = null)
+    {
+        $categories = Category::where('parent_id', $parent_id)
+            ->where('id', '<>', $ignore_id)
+            ->get()
+            ->map(function($query) use($ignore_id){
+                $query->sub = $this->getSubCategories($query->id, $ignore_id);
+
+                return $query;
+            });
+
+        return $categories;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +42,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $categories = $this->getSubCategories(0);
+        // dd($categories);
+        return view('admin.categories.create', compact('categories'));
     }
 
     /**
@@ -40,6 +56,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $attributes = $request->only([
+            'parent_id',
             'name',
         ]);
         Category::create($attributes);
@@ -68,8 +85,9 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::findOrFail($id);
+            $categories = $this->getSubCategories(0, $id);
 
-            return view('admin.categories.edit', compact('category'));
+            return view('admin.categories.edit', compact('category', 'categories'));
         } catch (Exception $e) {
             return redirect()->back()->with($e->getMessage());
         }
@@ -87,6 +105,7 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $attributes = $request->only([
+                'parent_id',
                 'name',
             ]);
             $category = $category->update($attributes);

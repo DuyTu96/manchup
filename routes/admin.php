@@ -21,4 +21,7 @@ Route::group(['as' => 'admin.'], function () {
     Route::resource('products', 'ProductController', [
         'parameters' => ['products' => 'id']
     ]);
+    Route::resource('sizes', 'SizeController', [
+        'parameters' => ['sizes' => 'id']
+    ]);
 });

@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $fillable = [
         'category_id',
+        'size_id',
         'name',
         'product_code',
         'image',
@@ -37,5 +38,10 @@ class Product extends Model
     public function user()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function size()
+    {
+        return $this->belongsTo(Size::class);
     }
 }

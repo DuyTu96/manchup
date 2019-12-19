@@ -24,6 +24,15 @@
                             @method('PUT')
                             @csrf
                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label control-label">Danh Mục Cha</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="parent_id" id="parent_id">
+                                        <option value="0">Root</option>
+                                        @include('admin.partials.categories_options', ['level' => 0])
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-2 col-form-label control-label">Category Name</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name"

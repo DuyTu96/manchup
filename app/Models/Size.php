@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Size extends Model
 {
     protected $fillable = [
-        'parent_id',
-        'name',
+        'size',
     ];
 
     public function products()

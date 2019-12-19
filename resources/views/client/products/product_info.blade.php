@@ -31,9 +31,6 @@
 				@endforeach
               </ul>
             </div>
-            
-            <!-- end: more-images --> 
-            
           </div>
           <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
        
@@ -44,52 +41,36 @@
 				<p class="special-price"> <span class="price-label">Special Price</span> 
 					<span class="price"> 
 						@if ($product->price_sale > 0)
-							{{ $product->price_sale }} VND
+							{{ number_format($product->price_sale) }} VND
 						@else
-							{{ $product->price }} VND
+							{{ number_format($product->price) }} VND
 						@endif
 					</span> 
 				</p>
                 <p class="old-price"> 
 					<span class="price-label">Regular Price:</span> <span class="price"> 
 						@if ($product->price_sale >0 )
-							{{ $product->price }}
+							{{ number_format($product->price) }} VND
 						@endif
 					</span> 
 				</p>
               </div>
               <div class="short-description">
-                <h2>Description</h2>
+                <h2>Thông Tin Sản Phâm</h2>
                 <p>{{ $product->description }}</p>
-                
-               
               </div>
-              {{-- <div class="product-color-size-area">
-                <div class="color-area">
-                  <h2 class="saider-bar-title">Color</h2>
-                  <div class="color">
-                    <ul>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div> --}}
               <div class="product-variation">
                 <form action="#" method="post">
                   <div class="cart-plus-minus">
                     <label for="qty">Quantity:</label>
                     <div class="numbers-row">
-                      <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
-                      <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+					  <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
+					  <input class = "product_id" name="product_id" value="{{ $product->id }}" type="hidden">
+                      <input type="text" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                       <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                     </div>
                   </div>
-                  <button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                  <button id="addToCart" class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                 </form>
               </div>
               <div class="product-cart-option">

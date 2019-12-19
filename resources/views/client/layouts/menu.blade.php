@@ -4,172 +4,53 @@
             <li class="mt-root demo_custom_link_cms">
                 <div class="mt-root-item">
                     <a href="/">
-                        <div class="title title_font"><span class="title-text">Trang Chủ</span></div>
+                        <div class="title title_font"><span style="color: white" class="title-text">Trang Chủ</span></div>
                     </a>
                 </div>
             </li>
             <li class="mt-root">
                 <div class="mt-root-item"><a href="#">
-                        <div class="title title_font"><span class="title-text">Page</span></div>
+                        <div class="title title_font"><span style="color: white" class="title-text">Sản Phẩm</span></div>
                     </a></div>
                 <ul class="menu-items col-xs-12">
                     <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Shop Pages </a></div>
+                        <div class="title title_font"> <a href="#"> Sản Phẩm</a></div>
                         <ul class="submenu">
-                            <li class="menu-item">
-                                <div class="title"> <a href="shop_grid.html"> Shop grid </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="shop_grid_right_sidebar.html"> Shop grid right
-                                        sidebar</a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="shop_list.html"> Shop list </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="shop_list_right_sidebar.html"> Shop list right
-                                        sidebar</a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="shop_grid_full_width.html"> Shop grid full
-                                        width </a></div>
-                            </li>
+                            @foreach ($categories as $category)
+                                @if ($category->parent_id == 0)
+                                    <li class="menu-item">
+                                        <div class="title"> <a href="shop_grid.html">{{ $category->name }}</a></div>
+                                    </li>
+                                @endif
+                            @endforeach
                         </ul>
-                    </li>
-                    <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Ecommerce Pages </a></div>
-                        <ul class="submenu">
-                            <li class="menu-item">
-                                <div class="title"> <a href="wishlist.html"> Wishlists </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="checkout.html"> Checkout </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="compare.html"> Compare </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="shopping_cart.html"> Shopping cart </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="quick_view.html"> Quick View </a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Static Pages </a></div>
-                        <ul class="submenu">
-                            <li class="menu-item depth-2 category ">
-                                <div class="title"> <a href="account_page.html"> Create Account Page </a>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="about_us.html"> About Us </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="contact_us.html"> Contact us </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="404error.html"> Error 404 </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="faq.html"> FAQ </a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Product Categories </a></div>
-                        <ul class="submenu">
-                            <li class="menu-item">
-                                <div class="title"> <a href="cat-3-col.html"> 3 Column Sidebar </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="cat-4-col.html"> 4 Column Sidebar</a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="cat-4-col-full.html"> 4 Column Full width </a>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="cat-6-col.html"> 6 Columns Full width</a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Single Product Pages </a></div>
-                        <ul class="submenu">
-                            <li class="menu-item">
-                                <div class="title"> <a href="single_product.html"> single product </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="single_product_left_sidebar.html"> single
-                                        product left sidebar</a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="single_product_right_sidebar.html"> single
-                                        product right sidebar</a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="single_product_magnify_zoom.html"> single
-                                        product magnify zoom</a></div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item depth-1 menucol-1-3 ">
-                        <div class="title title_font"> <a href="#"> Blog Pages </a></div>
-                        <ul class="submenu">
-                            <li class="menu-item">
-                                <div class="title"> <a href="blog_right_sidebar.html"> Blog – Right Sidebar
-                                    </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="blog_left_sidebar.html"> Blog – Left Sidebar
-                                    </a></div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="blog_full_width.html"> Blog – Full-Width </a>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="title"> <a href="single_post.html"> Single post </a></div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="mt-root">
-                <div class="mt-root-item"><a href="contact_us.html">
-                        <div class="title title_font"><span class="title-text">Contact Us</span> </div>
-                    </a></div>
-            </li>
-            <li class="mt-root">
-                <div class="mt-root-item"><a href="about_us.html">
-                        <div class="title title_font"><span class="title-text">about us</span></div>
-                    </a></div>
-            </li>
-            <li class="mt-root demo_custom_link_cms">
-                <div class="mt-root-item"><a href="blog.html">
-                        <div class="title title_font"><span class="title-text">Blog</span></div>
-                    </a></div>
-                <ul class="menu-items col-md-3 col-sm-4 col-xs-12">
-                    <li class="menu-item depth-1">
-                        <div class="title"> <a href="blog_right_sidebar.html"> Blog – Right Sidebar </a>
-                        </div>
-                    </li>
-                    <li class="menu-item depth-1">
-                        <div class="title"> <a href="blog_left_sidebar.html"> Blog – Left Sidebar </a></div>
-                    </li>
-                    <li class="menu-item depth-1">
-                        <div class="title"> <a href="blog_full_width.html"> Blog – Full-Width </a></div>
-                    </li>
-                    <li class="menu-item depth-1">
-                        <div class="title"> <a href="single_post.html"> Single post </a></div>
                     </li>
                 </ul>
             </li>
             <li class="mt-root">
                 <div class="mt-root-item">
-                    <div class="title title_font"><span class="title-text">Best Seller</span></div>
+                    <a href="contact_us.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Tin Tức</span> </div>
+                    </a>
+                </div>
+            </li>
+            <li class="mt-root">
+                <div class="mt-root-item">
+                    <a href="about_us.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Giới Thiệu</span></div>
+                    </a>
+                </div>
+            </li>
+            <li class="mt-root demo_custom_link_cms">
+                <div class="mt-root-item">
+                    <a href="blog.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Phản Hồi</span></div>
+                    </a>
+                </div>
+            </li>
+            <li class="mt-root">
+                <div class="mt-root-item">
+                    <div class="title title_font"><span style="color: white" class="title-text">Best Seller</span></div>
                 </div>
                 <ul class="menu-items col-xs-12">
                     <li class="menu-item depth-1 product menucol-1-3 withimage">
@@ -184,7 +65,7 @@
                                             </figure>
                                         </a>
                                         <button type="button" class="add-to-cart-mt"> <i
-                                                class="fa fa-shopping-cart"></i><span> Add to Cart</span>
+                                                class="fa fa-shopping-cart"></i><span style="color: white"> Add to Cart</span>
                                         </button>
                                     </div>
                                     <div class="pr-info-area">
@@ -208,7 +89,7 @@
                                                 <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="item-price">
-                                                <div class="price-box"> <span class="regular-price"> <span
+                                                <div class="price-box"> <span style="color: white" class="regular-price"> <span style="color: white"
                                                             class="price">$125.00</span> </span> </div>
                                             </div>
                                         </div>
@@ -229,7 +110,7 @@
                                             </figure>
                                         </a>
                                         <button type="button" class="add-to-cart-mt"> <i
-                                                class="fa fa-shopping-cart"></i><span> Add to Cart</span>
+                                                class="fa fa-shopping-cart"></i><span style="color: white"> Add to Cart</span>
                                         </button>
                                     </div>
                                     <div class="pr-info-area">
@@ -253,7 +134,7 @@
                                                 <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="item-price">
-                                                <div class="price-box"> <span class="regular-price"> <span
+                                                <div class="price-box"> <span style="color: white" class="regular-price"> <span style="color: white"
                                                             class="price">$125.00</span> </span> </div>
                                             </div>
                                         </div>
@@ -276,7 +157,7 @@
                                             </figure>
                                         </a>
                                         <button type="button" class="add-to-cart-mt"> <i
-                                                class="fa fa-shopping-cart"></i><span> Add to Cart</span>
+                                                class="fa fa-shopping-cart"></i><span style="color: white"> Add to Cart</span>
                                         </button>
                                     </div>
                                     <div class="pr-info-area">
@@ -300,7 +181,7 @@
                                                 <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="item-price">
-                                                <div class="price-box"> <span class="regular-price"> <span
+                                                <div class="price-box"> <span style="color: white" class="regular-price"> <span style="color: white"
                                                             class="price">$125.00</span> </span> </div>
                                             </div>
                                         </div>

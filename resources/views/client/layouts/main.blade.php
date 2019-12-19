@@ -2,90 +2,104 @@
 <html lang="en">
 
 <!-- Mirrored from htmlmodern.justthemevalley.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 May 2018 04:23:49 GMT -->
+
 <head>
-<!-- Basic page needs -->
-<meta charset="utf-8">
-<!--[if IE]>
+    <!-- Basic page needs -->
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Modern - Multi Purpose eCommerce Website Template</title>
-<meta name="description" content="Explore the live preview of the professional Modern - Multi Purpose eCommerce Website Template get yourself knowledgeable about this theme prior to buying it. Browse through the pages, check out the images, click the buttons, explore the features.">
-<meta name="keywords" content="bootstrap, ecommerce, fashion, layout, responsive, responsive template, responsive template download, responsive theme, retail, shop, shopping, store, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template"/>
-<!-- Mobile specific metas  , -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Modern - Multi Purpose eCommerce Website Template</title>
+    <meta name="description"
+        content="Explore the live preview of the professional Modern - Multi Purpose eCommerce Website Template get yourself knowledgeable about this theme prior to buying it. Browse through the pages, check out the images, click the buttons, explore the features.">
+    <meta name="keywords"
+        content="bootstrap, ecommerce, fashion, layout, responsive, responsive template, responsive template download, responsive theme, retail, shop, shopping, store, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template" />
+    <!-- Mobile specific metas  , -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Favicon  -->
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Favicon  -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-<!-- Google Fonts -->
-<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800' rel='stylesheet'
+        type='text/css'>
 
-<!-- CSS Style -->
+    <!-- CSS Style -->
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/bootstrap.min.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('bower_components/assets-client-ecom/css/bootstrap.min.css') }}">
 
-<!-- font-awesome & simple line icons CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/font-awesome.css') }}" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/simple-line-icons.css') }}" media="all">
+    <!-- font-awesome & simple line icons CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('bower_components/assets-client-ecom/css/font-awesome.css') }}" media="all">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('bower_components/assets-client-ecom/css/simple-line-icons.css') }}" media="all">
 
-<!-- owl.carousel CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/owl.carousel.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/owl.theme.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/owl.transitions.css') }}">
+    <!-- owl.carousel CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('bower_components/assets-client-ecom/css/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/owl.theme.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('bower_components/assets-client-ecom/css/owl.transitions.css') }}">
 
-<!-- animate CSS  -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/animate.css') }}" media="all">
+    <!-- animate CSS  -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/animate.css') }}"
+        media="all">
 
-<!-- flexslider CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/flexslider.css') }}" >
+    <!-- flexslider CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/flexslider.css') }}">
 
-<!-- jquery-ui.min CSS  -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/jquery-ui.css') }}">
+    <!-- jquery-ui.min CSS  -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/jquery-ui.css') }}">
 
-<!-- Revolution Slider CSS -->
-<link href="{{ asset('bower_components/assets-client-ecom/css/revolution-slider.css') }}" rel="stylesheet">
+    <!-- Revolution Slider CSS -->
+    <link href="{{ asset('bower_components/assets-client-ecom/css/revolution-slider.css') }}" rel="stylesheet">
 
-<!-- style CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/style.css') }}" media="all">
+    <!-- style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/style.css') }}"
+        media="all">
 </head>
 
 <body class="cms-index-index cms-home-page">
 
-<!--[if lt IE 8]>
+    <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]--> 
+  <![endif]-->
 
-<!-- mobile menu -->
-{{-- @include('client.layouts.menu') --}}
-<!-- end mobile menu -->
-<div id="page"> 
- 
-  
-  <!-- Header -->
-@include('client.layouts.header')
-  <!-- end header --> 
-  
-  <!-- Navbar -->
-@include('client.layouts.sidebar')
-  <!-- end nav --> 
-  
-  <!-- Home Slider Start -->
-{{-- @include('client.layouts.slider') --}}
-  
-  <!-- main container -->
-  @yield('content')
-  
-  <!-- Footer -->
-  
-@include('client.layouts.footer')
-  <a href="#" class="totop"> </a> 
-  <!-- End Footer --> 
-  <!--Newsletter Popup Start--> 
-{{-- <div id="myModal" class="modal fade">
+    <!-- mobile menu -->
+    {{-- @include('client.layouts.menu') --}}
+    <!-- end mobile menu -->
+    <div id="page">
+
+
+        <!-- Header -->
+        @include('client.layouts.header')
+        <!-- end header -->
+
+        <!-- Navbar -->
+        @include('client.layouts.sidebar')
+        <!-- end nav -->
+
+        <!-- Home Slider Start -->
+        {{-- @include('client.layouts.slider') --}}
+
+        <!-- main container -->
+        @yield('content')
+
+        <!-- Footer -->
+
+        @include('client.layouts.footer')
+        <a href="#" class="totop"> </a>
+        <!-- End Footer -->
+        <!--Newsletter Popup Start-->
+        {{-- <div id="myModal" class="modal fade">
     <div class="modal-dialog newsletter-popup">
         <div class="modal-content"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         
@@ -112,70 +126,151 @@
         </div>
     </div>
 </div> --}}
- <!--End of Newsletter Popup-->   
-  </div>
+        <!--End of Newsletter Popup-->
+    </div>
 
 
-<!-- JS --> 
+    <!-- JS -->
 
-<!-- jquery js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery.min.js') }}"></script> 
+    <!-- jquery js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery.min.js') }}"></script>
 
-<!-- bootstrap js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/bootstrap.min.js') }}"></script> 
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/bootstrap.min.js') }}">
+    </script>
 
 
-<!-- owl.carousel.min js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/owl.carousel.min.js') }}"></script> 
+    <!-- owl.carousel.min js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/owl.carousel.min.js') }}">
+    </script>
 
-<!-- bxslider js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery.bxslider.js') }}"></script> 
+    <!-- bxslider js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery.bxslider.js') }}">
+    </script>
 
-<!-- Slider Js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/revolution-slider.js') }}"></script> 
+    <!-- Slider Js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/revolution-slider.js') }}">
+    </script>
 
-<!-- megamenu js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/megamenu.js') }}"></script> 
-<script type="text/javascript">
-  /* <![CDATA[ */   
-  var mega_menu = '0';
-  
-  /* ]]> */
-  </script> 
+    <!-- megamenu js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/megamenu.js') }}"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var mega_menu = '0';
 
-<!-- jquery.mobile-menu js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/mobile-menu.js') }}"></script> 
+        /* ]]> */
 
-<!--jquery-ui.min js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery-ui.js') }}"></script> 
+    </script>
 
-<!-- main js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/main.js') }}"></script> 
+    <!-- jquery.mobile-menu js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/mobile-menu.js') }}"></script>
 
-<!-- countdown js --> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/countdown.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/cloud-zoom.js') }}"></script> 
+    <!--jquery-ui.min js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/jquery-ui.js') }}"></script>
 
-<!-- Revolution Slider --> 
+    <!-- main js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/main.js') }}"></script>
 
-<!-- Hot Deals Timer 1--> 
-<script type="text/javascript">
-      var dthen1 = new Date("12/25/16 11:59:00 PM");
-      start = "08/04/15 03:02:11 AM";
-      start_date = Date.parse(start);
-      var dnow1 = new Date(start_date);
-      if(CountStepper>0)
-          ddiff= new Date((dnow1)-(dthen1));
-      else
-          ddiff = new Date((dthen1)-(dnow1));
-      gsecs1 = Math.floor(ddiff.valueOf()/1000);
-      
-      var iid1 = "countbox_1";
-      CountBack_slider(gsecs1,"countbox_1", 1);
-  </script>
+    <!-- countdown js -->
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/countdown.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/assets-client-ecom/js/cloud-zoom.js') }}"></script>
 
-    
+    <!-- Revolution Slider -->
+
+    <!-- Hot Deals Timer 1-->
+    <script type="text/javascript">
+        var dthen1 = new Date("12/25/16 11:59:00 PM");
+        start = "08/04/15 03:02:11 AM";
+        start_date = Date.parse(start);
+        var dnow1 = new Date(start_date);
+        if (CountStepper > 0)
+            ddiff = new Date((dnow1) - (dthen1));
+        else
+            ddiff = new Date((dthen1) - (dnow1));
+        gsecs1 = Math.floor(ddiff.valueOf() / 1000);
+
+        var iid1 = "countbox_1";
+        CountBack_slider(gsecs1, "countbox_1", 1);
+
+    </script>
+    <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $(document).on('click', '#addToCart', function(event){
+                event.preventDefault();
+                let product_id = $('.product_id').val();
+                let product_num = $('.num-product').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/gio-hang/them-san-pham',
+                    data: {'product_id' : product_id, 'product_num' : product_num},
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function(){
+                        alert('fail');
+                    }
+                })
+            });
+            $(document).on('click', '.addToCart', function(event){
+                event.preventDefault();
+                let product_id = $(this).parents('.item-inner').find('.product_id').val();
+                let product_num = $('.num-product').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/gio-hang/them-san-pham',
+                    data: {'product_id' : product_id, 'product_num' : product_num},
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function(){
+                        alert('fail');
+                    }
+                })
+            });
+            $('.input-quantity').change(function() {
+				let data = {
+					id: $(this).attr('data-id'),
+					quantity: $(this).val()
+				};
+                let _this = $(this);
+				$.ajax({
+					url: '/gio-hang/update',
+					data: data,
+					method: "POST",
+					success: function(scs) {
+						_this.parents('.product-cart').find('.summed-price').text(`${scs.summedPrice} VND`);
+						_this.parents('.orderDetail').find('#total_price').text(`${scs.total_price} VND`);
+					},
+					error: function() {
+					}
+                });
+			});
+
+            $(document).on('click', '.deleteCart', function(event){
+                event.preventDefault();
+                let product_id = $(this).parents('.product-cart').find('.product_id').val();
+                let _this = $(this);
+                $.ajax({
+                    type: 'POST',
+                    url: '/gio-hang/delete',
+                    data: {'product_id' : product_id},
+                    success: function(scs) {
+                        _this.parents('.orderDetail').find('#total_price').text(`${scs.total_price} VND`);
+                        _this.parents('.product-cart').remove();
+                    },
+                    error: function(){
+                        alert('fail');
+                    }
+                })
+            });
+    </script>
 </body>
 
 <!-- Mirrored from htmlmodern.justthemevalley.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 May 2018 04:27:04 GMT -->
+
 </html>

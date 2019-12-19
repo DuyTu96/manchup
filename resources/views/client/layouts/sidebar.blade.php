@@ -4,12 +4,12 @@
             <div class="col-md-3 col-sm-4">
                 <div class="mm-toggle-wrap">
                     <div class="mm-toggle"> <i class="fa fa-align-justify"></i> </div>
-                    <span class="mm-label">Categories</span>
+                    <span class="mm-label">Màn Các Loại</span>
                 </div>
                 <div class="mega-container visible-lg visible-md visible-sm">
                     <div class="navleft-container">
                         <div class="mega-menu-title">
-                            <h3>Categories</h3>
+                            <h3>Màn Các Loại</h3>
                         </div>
                         <div style="display: none" class="mega-menu-category">
                             <ul class="nav">

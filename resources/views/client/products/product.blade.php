@@ -14,8 +14,6 @@
         </div>
     </div>
 </div>
-<!-- Breadcrumbs End -->
-<!-- Main Container -->
 <div class="main-container col2-left-layout">
     <div class="container">
         <div class="row">
@@ -96,7 +94,7 @@
                                                         </div>
                                                         <div class="item-price">
                                                             <div class="price-box"> <span class="regular-price"> <span
-                                                                        class="price">{{ $product->price }}</span> </span> </div>
+                                                                        class="price">{{ number_format($product->price) }} VND</span> </span> </div>
                                                         </div>
                                                     </div>
                                                 </div>
