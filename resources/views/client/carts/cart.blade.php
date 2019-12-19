@@ -20,8 +20,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (isset($cookie))
-                                    @php $subToTal = 0 @endphp
+                                    @if ($cookie != false)
+                                        @php $subToTal = 0 @endphp
                                         @foreach ($cookie as $cart)
                                             <tr class="product-cart">
                                                 <td class="cart_product"><a href="{{ route('client.product.info', $cart['product_id']) }}"><img src="{{ $cart['product_image'] }}"
@@ -48,13 +48,23 @@
                                             </tr>
                                             @php $subToTal = $subToTal + $cart['product_num'] * $cart['product_price'] @endphp
                                         @endforeach
+                                    @else
+                                    <tr>
+                                        <td colspan="6">Giỏ Hàng Trống!!!</td>
+                                    </tr>
                                     @endif
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td colspan="2" rowspan="2"></td>
                                         <td colspan="2">Tổng Tiền :</td>
-                                        <td id="total_price" colspan="3">{{ number_format($subToTal) }} VND</td>
+                                        <td id="total_price" colspan="3">
+                                            @if ($cookie != false)
+                                            {{ number_format($subToTal) }} VND
+                                            @else
+                                            0
+                                            @endif
+                                        </td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -93,6 +103,10 @@
                                                 <div class="form-group">
                                                     <label class="col-sm-4 control-label" for="textinput">Địa Chỉ Người Nhận :</label>
                                                     <input style="width: 60%" type="text" name="user_address" placeholder="Địa Chỉ Người Nhận..." class="form-control" value="{{ old('user_address') }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label" for="textinput">Ghi Chú :</label>
+                                                    <textarea style="height: 200px; border-radius: 15px;" name="requiment" id="" cols="30" rows="10"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer no-border">

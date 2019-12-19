@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\OrderDetail;
+use Mail;
 
 class CartController extends Controller
 {
@@ -102,9 +104,30 @@ class CartController extends Controller
         }
         $attributes['total_price'] = $total_price;
         $order = Order::create($attributes);
-        foreach ($cart as $orderDeail) {
-            $order_id = $$;
+        foreach ($cart as $value) {
+            $orderDetail = new OrderDetail();
+            $orderDetail->order_id = $order->id;
+            $orderDetail->product_id = $value['product_id'];
+            $orderDetail->price = $value['product_price'];
+            $orderDetail->quantity = $value['product_num'];
+            $orderDetail->save();
         }
+        $data = [
+            'name' => $request->user_name,
+            'email' => $request->user_email,
+            'address' => $request->user_address,
+            'phone' => $request->user_phone,
+            'cart' => $cart,
+            'total_price' => $total_price,
+            'requiment' => $request->requiment,
+        ];
+        Mail::send('client.mails.mail', $data, function ($message) {
+            $message->from('swiftmailerlaravel@gmail.com', 'Thông Báo Đơn Hàng');
+            $message->to('dohang98.hd@gmail.com', 'Order')->subject('Thông Báo Đơn Hàng');
+        });
+        $cookie  = cookie('cart', null);
+
+        return redirect('/')->withCookie($cookie);
     }
 
     public function delete(Request $request)
