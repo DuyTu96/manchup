@@ -15,6 +15,9 @@ Route::group(['namespace' => 'Client'], function () {
     Route::get('/san-pham', 'ProductController@index')->name('client.products.index');
     Route::get('/san-pham/{id}', 'ProductController@show')->name('client.product.show');
     Route::get('/san-pham/{id}/thong-tin', 'ProductController@info')->name('client.product.info');
+    Route::get('/san-pham/{id}/view-product-by-parent-cate', 'ProductController@productByParentCate')->name('client.products.productByParentCate');
+    Route::get('/san-pham/{id}/view-product-by-size', 'ProductController@productBySize')->name('client.products.productBySize');
+    Route::post('/search', 'HomeController@search')->name('client.search');
 
     Route::prefix('gio-hang')->group(function() {
         Route::get('/index', 'CartController@index')->name('client.carts.index');

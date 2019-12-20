@@ -5,7 +5,7 @@
         <div class="col-main">
             <div class="cart">
                 <div class="page-content page-order">
-                    <div class="page-title"><h2>Shopping Cart</h2></div>
+                    <div class="page-title"><h2>Giỏ Hàng</h2></div>
                     <div class="order-detail-content">
                         <div class="table-responsive orderDetail">
                             <table class="table table-bordered cart_summary">
@@ -60,9 +60,9 @@
                                         <td colspan="2">Tổng Tiền :</td>
                                         <td id="total_price" colspan="3">
                                             @if ($cookie != false)
-                                            {{ number_format($subToTal) }} VND
+                                                {{ number_format($subToTal) }} VND
                                             @else
-                                            0
+                                                0
                                             @endif
                                         </td>
                                     </tr>
@@ -74,9 +74,11 @@
                             <a class="continue-btn" href="/">
                                 <i class="fa fa-arrow-left"></i>&nbsp; Tiếp Tục Mua Sắp
                             </a> 
-                            <a class="checkout-btn usernotlogin" data-toggle="modal" data-target="#basic-modal">
-                                <i class="fa fa-check"></i> Xác Nhận Đặt Hàng
-                            </a>
+                            @if ($cookie != false)
+                                <a class="checkout-btn usernotlogin" data-toggle="modal" data-target="#basic-modal">
+                                    <i class="fa fa-check"></i> Xác Nhận Đặt Hàng
+                                </a>
+                            @endif
                             <div class="modal fade" id="basic-modal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

@@ -20,44 +20,35 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Name</th>
-                                <th>Status</th>
-                                <th>Bill Code</th>
-                                <th>Date</th>
-                                <th>Amount</th>
+                                <th>Tên</th>
+                                <th>Sô Điện Thoại</th>
+                                <th>Email</th>
+                                <th>Địa Chỉ</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
                                 <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="checkbox">
-                                        <input id="selectable2" type="checkbox">
-                                        <label for="selectable2"></label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-1.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title">Marshall Nichols</span>
-                                                <span class="sub-title">ID 870</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge badge-pill badge-gradient-success">Actived</span></td>
-                                <td>#33667</td>
-                                <td>08 May 2018</td>
-                                <td> $168.00</td>
-                                <td class="text-center font-size-18">
-                                    <a href="#" class="text-gray m-r-15"><i class="ti-pencil"></i></a>
-                                    <a href="#" class="text-gray"><i class="ti-trash"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($orders as $key => $order)
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $order->user_name }}</td>
+                                    <td>{{ $order->user_phone }}</td>
+                                    <td>{{ $order->user_email }}</td>
+                                    <td>{{ $order->user_address }}</td>
+                                    <td>{{ $order->total_price }}</td>
+                                    <td>
+                                        @if ($order->status == 0)
+                                            <button class="btn btn-warning btn-sm">Chờ Xử Lý</button>
+                                        @endif
+                                    </td>
+                                    <td class="text-center font-size-18">
+                                        <a href="{{ route('admin.orders.show', $order->id) }}"><button class="btn btn-primary btn-sm"><i class="mdi mdi-eye"></i></button></a>
+                                        <a href="{{ route('admin.order.cancelOrder', $order->id) }}"><button class="btn btn-danger btn-sm checkconfirm">X</button></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -1,4 +1,4 @@
-<nav>
+<nav id="nav-menu">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-4">
@@ -14,7 +14,9 @@
                         <div style="display: none" class="mega-menu-category">
                             <ul class="nav">
                                 @foreach ($categories as $category)
-                                    <li> <a href="{{ route('client.product.show', $category->id) }}">{{ $category->name }}</a></li>
+                                    @if ($category->parent_id > 0)
+                                        <li> <a href="{{ route('client.product.show', $category->id) }}">{{ $category->name }}</a></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>

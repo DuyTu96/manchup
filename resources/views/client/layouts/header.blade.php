@@ -4,7 +4,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-sm-6 hidden-xs">
-                        <!-- Default Welcome Message -->
                         <div class="welcome-msg "><i class="fa fa-phone"></i> Giao Hàng Toàn Quốc</div>
                         <span class="phone hidden-sm">Mùng tự bung Bảo Lộc giá rẻ chất lượng bất ngờ!</span>
                     </div>
@@ -15,8 +14,7 @@
                                     <span class="hidden-xs"><i class="fa fa-user"></i> Hotline: <b>096 862 56 79</b></span>
                                 </a>
                             </div>
-                            <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><i
-                                        class="fa fa-heart"></i><span class="hidden-xs">Hỗ Trợ Trực Tuyến</span></a></div>
+                            <div class="wishlist"><a title="My Wishlist" href="#"><i class="fa fa-heart"></i><span class="hidden-xs">Hỗ Trợ Trực Tuyến</span></a></div>
                         </div>
                     </div>
                 </div>
@@ -30,23 +28,20 @@
                 <div class="col-xs-9 col-sm-6 col-md-6">
                     <div class="top-search">
                         <div id="search">
-                            <form>
+                            <form action="{{ route('client.search') }}" method="POST">
+                                @csrf
                                 <div class="input-group">
-                                    <select class="cate-dropdown hidden-xs" name="category_id">
+                                    <select class="cate-dropdown hidden-xs" name="">
                                         <option>Danh Mục</option>
                                         <option>women</option>
                                     </select>
                                     <input type="text" class="form-control" placeholder="Search" name="search">
-                                    <button class="btn-search" type="button"><i class="fa fa-search"></i></button>
+                                    <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
-                    <!-- End Search -->
                 </div>
-                <!-- top cart -->
-
                 <div class="col-lg-3 col-xs-3 top-cart">
                     <div class="top-cart-contain">
                         <div class="mini-cart">

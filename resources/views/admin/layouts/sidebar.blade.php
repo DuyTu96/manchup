@@ -69,6 +69,25 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="mdi mdi-cart-outline"></i>
+                    </span>
+                    <span class="title">Orders</span>
+                    <span class="arrow">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ route('admin.orders.index') }}">List Orders</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.orders.processed') }}">Orders Processed</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="side-nav-header">
                 <span>Others</span>

@@ -57,7 +57,7 @@
               </div>
               <div class="short-description">
                 <h2>Thông Tin Sản Phâm</h2>
-                <p>{{ $product->description }}</p>
+                <p>{!! $product->content !!}</p>
               </div>
               <div class="product-variation">
                 <form action="#" method="post">
@@ -89,29 +89,12 @@
           <div class="row">
             <div class="col-xs-12"><div class="product-tab-inner"> 
               <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                <li class="active"> <a href="#description" data-toggle="tab"> Description </a> </li>                <li> <a href="#reviews" data-toggle="tab">Reviews</a> </li>
-                 <li><a href="#product_tags" data-toggle="tab">Tags</a></li>
-                <li> <a href="#custom_tabs" data-toggle="tab">Custom Tab</a> </li>
+				<li class="active"> <a href="#description" data-toggle="tab">Mô Tả Sản Phẩm</a> </li>
               </ul>
               <div id="productTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="description">
                   <div class="std">
-                    <p>Proin lectus ipsum, gravida et mattis vulputate, 
-                      tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in 
-                      faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend 
-                      laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla
-                      luctus malesuada tincidunt. Nunc facilisis sagittis ullamcorper. Proin 
-                      lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et 
-                      lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et 
-                      ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus 
-                      adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada 
-                      tincidunt. Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, 
-                      gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. 
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                      cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl 
-                      ut dolor dignissim semper. Nulla luctus malesuada tincidunt.</p>
-                    <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                    {!! $product->description !!}
                   </div>
                 </div>
                 
@@ -344,13 +327,7 @@
           </div></div>
         </div>
       </div>
-    
-      
-      
-
-      
-      
-      
+	  <div class="fb-comments" data-href="https:// Manchupkinhbac.com" data-width="100%" data-numposts="5"></div>
     </div>
   </div>
 </div>
