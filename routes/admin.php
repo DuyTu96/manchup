@@ -27,6 +27,9 @@ Route::group(['as' => 'admin.'], function () {
     Route::resource('orders', 'OrderController', [
         'parameters' => ['orders' => 'id']
     ]);
+    Route::resource('post', 'PostController', [
+        'parameters' => ['posts' => 'id']
+    ]);
 });
 Route::get('orders/processed/finish', 'OrderController@processed')->name('admin.orders.processed');
 Route::get('order/{id}/finish', 'OrderController@finishOrder')->name('admin.order.finishOrder');
