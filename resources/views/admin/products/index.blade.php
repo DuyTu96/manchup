@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                         @endif
-                        <table id="dt-opt" class="table table-hover table-xl">
+                        <table style="color: black" id="dt-opt" class="table table-hover table-xl">
                             <thead>
                                 <tr>
                                     <th style="width: 5%">STT</th>
@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $key =>  $product)
-                                    <tr>
+                                    <tr class="test_tr">
                                         <td>{{ $key+1 }}</td>
                                         <td>
                                             <div class="list-media">
@@ -76,7 +76,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="{{ route('admin.products.edit', $product->id) }}"><button type="button" class="btn btn-primary"><i class="ti-pencil"></i></button></a>
-                                                <button type="submit" class="btn btn-danger"><i class="ti-trash"></i></button>
+                                                <button type="button" class="btn btn-danger checkconfirm"><i class="ti-trash"></i></button>
+                                                <button type="submit" class="test d-none">test</button>
                                             </form>
                                         </td>
                                     </tr>

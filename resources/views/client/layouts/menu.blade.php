@@ -36,15 +36,22 @@
             </li>
             <li class="mt-root">
                 <div class="mt-root-item">
-                    <a href="about_us.html">
-                        <div class="title title_font"><span style="color: white" class="title-text">Giới Thiệu</span></div>
+                    <a href="contact_us.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Khuyến Mại</span> </div>
                     </a>
                 </div>
             </li>
-            <li class="mt-root demo_custom_link_cms">
+            <li class="mt-root">
                 <div class="mt-root-item">
-                    <a href="blog.html">
-                        <div class="title title_font"><span style="color: white" class="title-text">Phản Hồi</span></div>
+                    <a href="contact_us.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Liên Hệ</span> </div>
+                    </a>
+                </div>
+            </li>
+            <li class="mt-root">
+                <div class="mt-root-item">
+                    <a href="about_us.html">
+                        <div class="title title_font"><span style="color: white" class="title-text">Giới Thiệu</span></div>
                     </a>
                 </div>
             </li>

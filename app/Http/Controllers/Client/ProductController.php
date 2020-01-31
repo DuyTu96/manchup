@@ -36,9 +36,11 @@ class ProductController extends Controller
     {
         $cookie = unserialize($request->cookie('cart'));
         $product = Product::findOrFail($id);
-        $imageProduct = Image::all()->where('product_id', $id);
         $categories = Category::all();
-        return view('client.products.product_info', compact('categories', 'imageProduct', 'product', 'cookie'));
+        $relatedProduct = Product::all()->where('category_id', $product->category_id);
+        $product->category_id;
+
+        return view('client.products.product_info', compact('categories', 'product', 'cookie', 'relatedProduct'));
     }
 
     public function productByParentCate(Request $request, $id)

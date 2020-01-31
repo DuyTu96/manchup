@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Size;
+use App\Models\Order;
 use DB;
 
 class ProductController extends Controller
@@ -19,8 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
         $products = Product::latest()->with('category')->get();
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products', 'ordersNotification'));
     }
 
     /**
@@ -30,9 +32,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
         $sizes = Size::all();
         $categories = Category::all();
-        return view('admin.products.create', compact('categories', 'sizes'));
+        return view('admin.products.create', compact('categories', 'sizes', 'ordersNotification'));
     }
 
     /**
@@ -107,11 +110,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         try {
+            $ordersNotification = Order::all()->where('status', 0)->take(5);
             $categories = Category::all();
             $product = Product::findOrFail($id);
             $sizes = Size::all();
 
-            return view('admin.products.edit', compact('categories', 'product', 'sizes'));
+            return view('admin.products.edit', compact('categories', 'product', 'sizes', 'ordersNotification'));
         } catch (Exception $e) {
             return redirect()->back()->with($e->getMessage());
         }

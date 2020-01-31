@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Order;
 
 class CategoryController extends Controller
 {
@@ -17,8 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
         $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories', 'ordersNotification'));
     }
 
     private function getSubCategories($parent_id, $ignore_id = null)
@@ -43,8 +45,9 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = $this->getSubCategories(0);
-        // dd($categories);
-        return view('admin.categories.create', compact('categories'));
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
+
+        return view('admin.categories.create', compact('categories', 'ordersNotification'));
     }
 
     /**
@@ -86,8 +89,9 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $categories = $this->getSubCategories(0, $id);
+            $ordersNotification = Order::all()->where('status', 0)->take(5);
 
-            return view('admin.categories.edit', compact('category', 'categories'));
+            return view('admin.categories.edit', compact('category', 'categories', 'ordersNotification'));
         } catch (Exception $e) {
             return redirect()->back()->with($e->getMessage());
         }

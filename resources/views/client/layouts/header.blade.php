@@ -15,6 +15,21 @@
                                 </a>
                             </div>
                             <div class="wishlist"><a title="My Wishlist" href="#"><i class="fa fa-heart"></i><span class="hidden-xs">Hỗ Trợ Trực Tuyến</span></a></div>
+                            <div class="wishlist">
+                                @if (Auth::Check() == true)
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button style="background: white" class="btn" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> {{ Auth::User()->name }} </button>
+                                        @if (Auth::User()->role > 0)
+                                            |<a href="{{ route('admin.dashboard.index') }}">Admin Page</a>
+                                        @endif
+                                    </form>
+                                @else
+                                    <a href="{{ route('login') }}">Đăng Nhập</a>
+                                @endif
+                                    
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-3 col-xs-12">
-                    <div class="logo"><a title="e-commerce" href="/"><img alt="responsive theme logo" src="images/logo.png"></a> </div>
+                    <div style="margin-top: 15px " class="logo"><a title="e-commerce" href="/"><img alt="responsive theme logo" src="{{ asset('image/logo.png') }}"></a> </div>
                 </div>
                 <div class="col-xs-9 col-sm-6 col-md-6">
                     <div class="top-search">
@@ -33,7 +48,6 @@
                                 <div class="input-group">
                                     <select class="cate-dropdown hidden-xs" name="">
                                         <option>Danh Mục</option>
-                                        <option>women</option>
                                     </select>
                                     <input type="text" class="form-control" placeholder="Search" name="search">
                                     <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>

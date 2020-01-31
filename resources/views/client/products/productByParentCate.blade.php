@@ -57,28 +57,29 @@
                                         <div class="product-item">
                                             <div class="item-inner">
                                                 <div class="product-thumbnail">
-                                                    <div class="icon-sale-label sale-left">Sale</div>
-                                                    <div class="icon-new-label new-right">New</div>
+                                                    <div class="icon-sale-label sale-left"> -{{ 100-number_format($product->price_sale/$product->price*100) }}%</div>
+                                                    @if ($product->new == 1)
+                                                        <div class="icon-new-label new-right">New</div>
+                                                    @endif
                                                     <div class="pr-img-area">
                                                         <a title="Ipsums Dolors Untra" href="{{ route('client.product.info', $product->id) }}"
                                                             href="single_product.html">
                                                             <figure>
-                                                                <img class="first-img" src="{{ $product->image }}"
-                                                                    alt=""> <img class="hover-img"
-                                                                    src="{{ $product->image }}" alt="">
+                                                                <img style="width: 250px; height: 250px;" class="first-img" src="{{ $product->image }}" alt="">
+                                                                <img style="width: 250px; height: 250px;" class="hover-img" src="{{ $product->image }}" alt="">
                                                             </figure>
                                                         </a>
-                                                        <button type="button" class="add-to-cart-mt"> <i
-                                                                class="fa fa-shopping-cart"></i><span> Add to Cart</span>
-                                                        </button>
+                                                        <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
+                                                        <input class="product_id" name="product_id" value="{{ $product->id }}" type="hidden">
+                                                        <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                     </div>
                                                     <div class="pr-info-area">
                                                         <div class="pr-button">
-                                                            <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i
+                                                            <div class="mt-button add_to_wishlist"> <a> <i
                                                                         class="fa fa-heart"></i> </a> </div>
-                                                            <div class="mt-button add_to_compare"> <a href="compare.html"> <i
+                                                            <div class="mt-button add_to_compare"> <a> <i
                                                                         class="fa fa-signal"></i> </a> </div>
-                                                            <div class="mt-button quick-view"> <a href="quick_view.html"> <i
+                                                            <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $product->id) }}"> <i
                                                                         class="fa fa-search"></i> </a> </div>
                                                         </div>
                                                     </div>

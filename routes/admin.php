@@ -11,26 +11,29 @@
 |
 */
 
-Route::group(['as' => 'admin.'], function () {
-    Route::resource('categories', 'CategoryController', [
-        'parameters' => ['categories' => 'id']
+Route::group(['middleware' => 'checkAdminLogin'], function () {
+    Route::get('', [
+        'as' => 'admin.dashboard.index',
+        'uses' => 'DashboardController@index'
     ]);
-    Route::resource('users', 'UserController', [
-        'parameters' => ['users' => 'id']
-    ]);
-    Route::resource('products', 'ProductController', [
-        'parameters' => ['products' => 'id']
-    ]);
-    Route::resource('sizes', 'SizeController', [
-        'parameters' => ['sizes' => 'id']
-    ]);
-    Route::resource('orders', 'OrderController', [
-        'parameters' => ['orders' => 'id']
-    ]);
-    Route::resource('post', 'PostController', [
-        'parameters' => ['posts' => 'id']
-    ]);
+    Route::group(['as' => 'admin.'], function () {
+        Route::resource('categories', 'CategoryController', [
+            'parameters' => ['categories' => 'id']
+        ]);
+        Route::resource('users', 'UserController', [
+            'parameters' => ['users' => 'id']
+        ])->middleware('checkAdminRole');
+        Route::resource('products', 'ProductController', [
+            'parameters' => ['products' => 'id']
+        ]);
+        Route::resource('sizes', 'SizeController', [
+            'parameters' => ['sizes' => 'id']
+        ]);
+        Route::resource('orders', 'OrderController', [
+            'parameters' => ['orders' => 'id']
+        ]);
+    });
+    Route::get('orders/processed/finish', 'OrderController@processed')->name('admin.orders.processed');
+    Route::get('order/{id}/finish', 'OrderController@finishOrder')->name('admin.order.finishOrder');
+    Route::get('order/{id}/cancel', 'OrderController@cancelOrder')->name('admin.order.cancelOrder'); 
 });
-Route::get('orders/processed/finish', 'OrderController@processed')->name('admin.orders.processed');
-Route::get('order/{id}/finish', 'OrderController@finishOrder')->name('admin.order.finishOrder');
-Route::get('order/{id}/cancel', 'OrderController@cancelOrder')->name('admin.order.cancelOrder');

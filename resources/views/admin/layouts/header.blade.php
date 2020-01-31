@@ -1,7 +1,7 @@
 <div class="header navbar">
     <div class="header-container">
         <div class="nav-logo">
-            <a href="index.html">
+            <a href="/">
                 <div class="logo logo-dark" style="background-image: url('{{ asset('/bower_components/assets-admin-ecom/images/logo/logo.png') }}')"></div>
                 <div class="logo logo-white" style="background-image: url('{{ asset('/bower_components/assets-admin-ecom/images/logo/logo-white.png') }}')"></div>
             </a>
@@ -162,7 +162,13 @@
                 </ul>    
             </li>
             <li class="notifications dropdown dropdown-animated scale-left">
-                <span class="counter">2</span>
+                <span class="counter">
+                    @if (count($ordersNotification) <= 5)
+                        {{ count($ordersNotification) }}
+                    @else
+                        5
+                    @endif
+                </span>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="mdi mdi-bell-ring-outline"></i>
                 </a>
@@ -170,94 +176,47 @@
                     <li class="p-v-15 p-h-20 border bottom text-dark">
                         <h5 class="m-b-0">
                             <i class="mdi mdi-bell-ring-outline p-r-10"></i>
-                            <span>Notifications</span>
+                            <span>Thông Báo</span>
                         </h5>
                     </li>
                     <li>
                         <ul class="list-media overflow-y-auto relative scrollable" style="max-height: 300px">
-                            <li class="list-item border bottom">
-                                <a href="javascript:void(0);" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-primary">
-                                            <i class="ti-settings"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            System shutdown
-                                        </span>
-                                        <span class="sub-title">8 min ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-item border bottom">
-                                <a href="javascript:void(0);" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-success">
-                                            <i class="ti-user"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            New User Registered
-                                        </span>
-                                        <span class="sub-title">12 min ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-item border bottom">
-                                <a href="javascript:void(0);" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-warning">
-                                            <i class="ti-file"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            New Attacthemnet
-                                        </span>
-                                        <span class="sub-title">12 min ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-item border bottom">
-                                <a href="javascript:void(0);" class="media-hover p-15">
-                                    <div class="media-img">
-                                        <div class="icon-avatar bg-info">
-                                            <i class="ti-shopping-cart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <span class="title">
-                                            New Order Received
-                                        </span>
-                                        <span class="sub-title">12 min ago</span>
-                                    </div>
-                                </a>
-                            </li>
+                            @foreach ($ordersNotification as $order)
+                                <li class="list-item border bottom">
+                                    <a style="text-decoration: none; color: black" href="{{ route('admin.orders.show', $order->id) }}" class="media-hover p-15">
+                                        {{ $order->user_name }} - {{ $order->user_phone }} Đã Đặt Hàng! - {{ number_format($order->total_price) }}đ
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="p-v-15 p-h-20 text-center">
                         <span>
-                            <a href="#" class="text-gray">Check all notifications <i class="ei-right-chevron p-l-5 font-size-10"></i></a>
+                            <a href="{{ route('admin.orders.index') }}" class="text-gray">Check all notifications <i class="ei-right-chevron p-l-5 font-size-10"></i></a>
                         </span>
                     </li>
                 </ul>
             </li>
             <li class="user-profile dropdown dropdown-animated scale-left">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img class="profile-img img-fluid" src="assets/images/avatars/thumb-13.jpg" alt="">
+                    <img style="width: 45px; height: 45px" class="profile-img img-fluid" src="{{ Auth::User()->avatar }}" alt="">
                 </a>
                 <ul class="dropdown-menu dropdown-md p-v-0">
                     <li>
                         <ul class="list-media">
                             <li class="list-item p-15">
                                 <div class="media-img">
-                                    <img src="assets/images/avatars/thumb-13.jpg" alt="">
+                                    <img style="width: 75px; height: 75px;" src="{{ Auth::User()->avatar }}" alt="">
                                 </div>
                                 <div class="info">
-                                    <span class="title text-semibold">Marshall Nichols</span>
-                                    <span class="sub-title">UI/UX Desinger</span>
+                                    <span class="title text-semibold">{{ Auth::User()->name }}</span>
+                                    <span class="sub-title">
+                                        @if (Auth::User()->role == 1)
+                                            Admin
+                                        @else
+                                            Supper Admin
+                                        @endif
+                                    </span>
                                 </div>
                             </li>
                         </ul>
@@ -283,10 +242,11 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a id="logout" href="">
                             <i class="ti-power-off p-r-10"></i>
                             <span>Logout</span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
                     </li>
                 </ul>
             </li>

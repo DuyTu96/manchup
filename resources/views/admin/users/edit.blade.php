@@ -18,97 +18,69 @@
                 <h4 class="card-title">Form Validation</h4>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <form role="form" id="form-validation">
+                <form role="form" id="form-validation" action="{{ route('admin.users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Required *</label>
+                                <label class="col-sm-2 col-form-label control-label">User Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputRequired"
-                                        placeholder="Required *">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter User Name!"  value="{{ $user->name }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Min Length</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">User Mail</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputMinLength"
-                                        placeholder="Enter minimum 8 characters">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter User Mail" required value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Max Length</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Password</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputMaxLength"
-                                        placeholder="Enter maximum 8 characters">
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required value="{{ old('password') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Range length</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Confirm Password</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputRangeLength"
-                                        placeholder="Enter minimum 2 & maximum 6 characters" required>
+                                    <input type="password" class="form-control" name="repassword" placeholder="Enter Confirm Password" required value="{{ old('repassword') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Min Value</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Phone</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputMinValue"
-                                        placeholder="Enter number more than 8">
+                                    <input type="number" class="form-control" name="phone" placeholder="Enter Phone" required value="{{ $user->phone }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Max Value</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Address</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputMaxValue"
-                                        placeholder="Enter number less than 6">
+                                    <input type="text" class="form-control" name="address" placeholder="Enter Address" required value="{{ $user->address }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Range Value</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Quyền</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputRangeValue"
-                                        placeholder="Enter number between 6 to 12">
+                                    <select class="form-control" name="role" id="">
+                                        <option value="0" @if ($user->role == 0) selected @endif >Khách</option>
+                                        <option value="1" @if ($user->role == 1) selected @endif >Admin</option>
+                                        <option value="2" @if ($user->role == 2) selected @endif >Supper Admin</option>
+                                    </select>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-gradient-success">Submit</button>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Avatar</label>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputEmail"
-                                        placeholder="Enter a valid email">
-                                </div>
+                                <input onchange="changeImg(this)" id="img" type="file" name="avatar" class="form-control d-none">
+                                <img class="img-fluid" style="border: double" width="300px" src="{{ $user->avatar }}" id="prd_img" alt="">
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input id="password" type="text" class="form-control" name="inputPassword"
-                                        placeholder="Enter your password">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Confirm Password</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inputPasswordConfirm"
-                                        placeholder="Enter your password again">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">URL</label>
-                                <div class="col-sm-10">
-                                    <input type="url" class="form-control" name="inputUrl"
-                                        placeholder="Enter a valid URL" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label control-label">Digit</label>
-                                <div class="col-sm-10">
-                                    <input type="url" class="form-control" name="inputDigit" placeholder="Enter a Digit"
-                                        required>
-                                </div>
-                            </div>
-                            <button class="btn btn-gradient-success">Submit</button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Size;
+use App\Models\Order;
 
 class SizeController extends Controller
 {
     public function index()
     {
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
         $sizes = Size::all();
-        return view('admin.sizes.create', compact('sizes'));
+        return view('admin.sizes.create', compact('sizes', 'ordersNotification'));
     }
 
     public function store(Request $request)
@@ -26,9 +28,10 @@ class SizeController extends Controller
 
     public function edit($id)
     {
+        $ordersNotification = Order::all()->where('status', 0)->take(5);
         $size = Size::findOrFail($id);
         $sizes = Size::all();
-        return view('admin.sizes.edit', compact('size', 'sizes'));
+        return view('admin.sizes.edit', compact('size', 'sizes', 'ordersNotification'));
     }
 
     public function update(Request $request, $id)

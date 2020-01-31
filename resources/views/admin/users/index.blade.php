@@ -16,48 +16,39 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-overflow">
-                    <table id="dt-opt" class="table table-hover table-xl">
+                    <table style="color: black" id="dt-opt" class="table table-hover table-xl">
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Name</th>
-                                <th>Status</th>
-                                <th>Bill Code</th>
-                                <th>Date</th>
-                                <th>Amount</th>
+                                <th>Ảnh</th>
+                                <th>Họ Tên</th>
+                                <th>Email</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Địa Chỉ</th>
                                 <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="checkbox">
-                                        <input id="selectable2" type="checkbox">
-                                        <label for="selectable2"></label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="list-media">
-                                        <div class="list-item">
-                                            <div class="media-img">
-                                                <img src="assets/images/avatars/thumb-1.jpg" alt="">
-                                            </div>
-                                            <div class="info">
-                                                <span class="title">Marshall Nichols</span>
-                                                <span class="sub-title">ID 870</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge badge-pill badge-gradient-success">Actived</span></td>
-                                <td>#33667</td>
-                                <td>08 May 2018</td>
-                                <td> $168.00</td>
-                                <td class="text-center font-size-18">
-                                    <button type="button" class="btn btn-primary"><i class="ti-pencil"></i></button>
-                                    <button type="submit" class="btn btn-danger"><i class="ti-trash"></i></button>
-                                </td>
+                            @foreach ($users as $key => $user)
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td><img style="width: 100px; height: 100px; border-radius:5px;" src="{{ $user->avatar }}" alt=""></td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->address }}</td>
+                                    
+                                    <td style="width: 5%" class="text-center font-size-18">
+                                        @if (Auth::User()->role >= $user->role)
+                                            <a href="{{ route('admin.users.edit', $user->id) }}"><button type="button" class="btn btn-primary"><i class="ti-pencil"></i></button></a>
+                                        @endif
+                                        @if (Auth::User()->role > $user->role)
+                                            <button type="submit" class="btn btn-danger checkconfirm"><i class="ti-trash"></i></button>
+                                        @endif
+                                    </td>
+                                    
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

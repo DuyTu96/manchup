@@ -1,4 +1,4 @@
-﻿@extends('client.layouts.main')
+@extends('client.layouts.main')
 @section('content')
 <div class="breadcrumbs">
     <div class="container">

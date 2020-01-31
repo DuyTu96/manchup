@@ -5,101 +5,96 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-8 col-xs-12">
-                <div class="home-tab">
-                    <ul class="nav home-nav-tabs home-product-tabs">
-                        <li class="active"><a href="#featured" data-toggle="tab" aria-expanded="false">Sản Phẩm Nổi Bật</a></li>
-                        <li class="divider"></li>
-                    </ul>
+                <div class="related-product-area">
+                    <div class="page-header">
+                        <h2>Sản Phẩm Nổi Bật</h2>
+                    </div>
                     <div id="productTabContent" class="tab-content">
                         <div class="tab-pane active in" id="featured">
-                            <div class="featured-pro">
-                                <div class="slider-items-products">
-                                    <div id="featured-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4">
-                                            @foreach ($product_featured as $prd)
-                                                <div class="product-item">
-                                                    <div class="item-inner">
-                                                        <div class="product-thumbnail">
-                                                            @if ($prd->price_sale > 0)
-                                                                <div class="icon-sale-label sale-left">-{{ 100-number_format($prd->price_sale/$prd->price*100) }}%</div>
-                                                            @endif
-                                                            @if ($prd->new == 1)
-                                                                <div class="icon-new-label new-right">New</div>
-                                                            @endif
-                                                            <div class="pr-img-area">
-                                                                <a title="{{ $prd->name }}" href="{{ route('client.product.info', $prd->id) }}">
-                                                                    <figure>
-                                                                        <img class="first-img" src="{{ $prd->image }}" alt="{{ $prd->name }}">
-                                                                        <img class="hover-img" src="{{ $prd->image }}" alt="{{ $prd->name }}">
-                                                                    </figure>
+                            <div id="related-product-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4">
+                                    @foreach ($product_featured as $prd)
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    @if ($prd->price_sale > 0)
+                                                        <div class="icon-sale-label sale-left">-{{ 100-number_format($prd->price_sale/$prd->price*100) }}%</div>
+                                                    @endif
+                                                    @if ($prd->new == 1)
+                                                        <div class="icon-new-label new-right">New</div>
+                                                    @endif
+                                                    <div class="pr-img-area">
+                                                        <a title="{{ $prd->name }}" href="{{ route('client.product.info', $prd->id) }}">
+                                                            <figure>
+                                                                <img style="width: 180px; height: 180px" class="first-img" src="{{ $prd->image }}" alt="{{ $prd->name }}">
+                                                                <img style="width: 180px; height: 180px" class="hover-img" src="{{ $prd->image }}" alt="{{ $prd->name }}">
+                                                            </figure>
+                                                        </a>
+                                                        <button type="button" class="add-to-cart-mt addToCart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <span> Thêm Vào Giỏ Hàng</span>
+                                                        </button>
+                                                        <input class="product_id" name="product_id" value="{{ $prd->id }}" type="hidden">
+                                                        <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                                                    </div>
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist">
+                                                                <a>
+                                                                    <i class="fa fa-heart"></i>
                                                                 </a>
-                                                                <button type="button" class="add-to-cart-mt addToCart">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                    <span> Thêm Vào Giỏ Hàng</span>
-                                                                </button>
-                                                                <input class="product_id" name="product_id" value="{{ $prd->id }}" type="hidden">
-                                                                <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                             </div>
-                                                            <div class="pr-info-area">
-                                                                <div class="pr-button">
-                                                                    <div class="mt-button add_to_wishlist">
-                                                                        <a href="#">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="mt-button add_to_compare">
-                                                                        <a href="#">
-                                                                            <i class="fa fa-signal"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="mt-button quick-view">
-                                                                        <a href="{{ route('client.product.info', $prd->id) }}">
-                                                                            <i class="fa fa-search"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="mt-button add_to_compare">
+                                                                <a>
+                                                                    <i class="fa fa-signal"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="mt-button quick-view">
+                                                                <a href="{{ route('client.product.info', $prd->id) }}">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title">
-                                                                    <a title="{{ $prd->name }}" href="{{ route('client.product.info', $prd->id) }}">{{ $prd->name }}</a>
-                                                                </div>
-                                                                <div class="item-content">
-                                                                    <div class="rating">
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                    </div>
-                                                                    <div class="item-price">
-                                                                        <div class="price-box">
-                                                                            <span class="regular-price">
-                                                                                @if ($prd->price_sale >0)
-                                                                                    <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($prd->price_sale) }} đ</span> </p>
-                                                                                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($prd->price) }} đ</span> </p>
-                                                                                @else
-                                                                                    <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($prd->price) }} đ</span> </p>
-                                                                                @endif
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title">
+                                                            <a title="{{ $prd->name }}" href="{{ route('client.product.info', $prd->id) }}">{{ $prd->name }}</a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <div class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box">
+                                                                    <span class="regular-price">
+                                                                        @if ($prd->price_sale >0)
+                                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($prd->price_sale) }} đ</span> </p>
+                                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($prd->price) }} đ</span> </p>
+                                                                        @else
+                                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($prd->price) }} đ</span> </p>
+                                                                        @endif
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-12 hot-products">
+            <div style="margin-top: 14px" class="col-md-4 col-sm-4 col-xs-12 hot-products">
                 <div class="hot-deal"> <span class="title-text">Hot deal</span>
                     <ul class="products-grid">
                         <li class="item">
@@ -111,8 +106,8 @@
                                         <div class="pr-img-area"> 
                                             <a title="{{ $product_hot->name }}" href="{{ route('client.product.info', $product_hot->id) }}">
                                                 <figure>
-                                                    <img class="first-img" src="{{ $product_hot->image }}" alt="{{ $product_hot->name }}">
-                                                    <img class="hover-img" src="{{ $product_hot->image }}" alt="{{ $product_hot->name }}">
+                                                    <img style="width: 350px; height: 350px" class="first-img" src="{{ $product_hot->image }}" alt="{{ $product_hot->name }}">
+                                                    <img style="width: 350px; height: 350px" class="hover-img" src="{{ $product_hot->image }}" alt="{{ $product_hot->name }}">
                                                 </figure>
                                             </a>
                                             <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span></button>
@@ -125,12 +120,12 @@
                                         <div class="pr-info-area">
                                             <div class="pr-button">
                                                 <div class="mt-button add_to_wishlist">
-                                                    <a href="#">
+                                                    <a>
                                                         <i class="fa fa-heart"></i>
                                                     </a>
                                                 </div>
                                                 <div class="mt-button add_to_compare">
-                                                    <a href="#">
+                                                    <a>
                                                         <i class="fa fa-signal"></i>
                                                     </a>
                                                 </div>
@@ -178,71 +173,75 @@
     </div>
 </div>
 <div class="container">
-    <div class="special-products">
-        <div class="page-header">
-            <h2>Màn Chụp Tự Bung</h2>
-        </div>
-        <div class="special-products-pro">
-            <div class="slider-items-products">
-                <div id="special-products-slider" class="product-flexslider hidden-buttons">
-                    <div class="slider-items slider-width-col4">
-                        @foreach ($productByCate1 as $prdcate)
-                            @foreach ($prdcate as $val)
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
-                                            @if ($val->new == 1)
-                                                <div class="icon-new-label new-right">New</div>
-                                            @endif
-                                            <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
-                                                    <figure>
-                                                        <img class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                        <img class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                    </figure>
-                                                </a>
-                                                <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
-                                                <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
-                                                <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"><a href="#"><i class="fa fa-heart"></i></a></div>
-                                                    <div class="mt-button add_to_compare"> <a href="#"> <i class="fa fa-signal"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $val->id) }}"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title">
-                                                    <a title="{{ $val->name }}" href="#">{{ $val->name }} </a>
-                                                </div>
-                                                <div class="item-content">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="related-product-area">
+                <div class="page-header">
+                    <h2>Màn Chụp Tự Bung</h2>
+                </div>
+                <div class="related-products-pro">
+                    <div class="slider-items-products">
+                        <div id="related-product-slider" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col4">
+                                @foreach ($productByCate1 as $prdcate)
+                                    @foreach ($prdcate as $val)
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
+                                                    @if ($val->new == 1)
+                                                        <div class="icon-new-label new-right">New</div>
+                                                    @endif
+                                                    <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
+                                                            <figure>
+                                                                <img style="width: 250px; height: 250px" class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                                <img style="width: 250px; height: 250px" class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                            </figure>
+                                                        </a>
+                                                        <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
+                                                        <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
+                                                        <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                     </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            @if ($val->price_sale >0)
-                                                                <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price_sale) }} đ</span> </p>
-                                                                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
-                                                            @else
-                                                                <p class="special-price"> <span class="price-label">Special Price</span><span class="price">{{ number_format($val->price) }} đ</span></p>
-                                                            @endif
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"><a><i class="fa fa-heart"></i></a></div>
+                                                            <div class="mt-button add_to_compare"> <a> <i class="fa fa-signal"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $val->id) }}"> <i class="fa fa-search"></i> </a> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title">
+                                                            <a title="{{ $val->name }}">{{ $val->name }} </a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <div class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box">
+                                                                    @if ($val->price_sale >0)
+                                                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price_sale) }} đ</span> </p>
+                                                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
+                                                                    @else
+                                                                        <p class="special-price"> <span class="price-label">Special Price</span><span class="price">{{ number_format($val->price) }} đ</span></p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,71 +249,75 @@
     </div>
 </div>
 <div class="container">
-    <div class="special-products">
-        <div class="page-header">
-            <h2>Màn Chụp Trẻ Em</h2>
-        </div>
-        <div class="special-products-pro">
-            <div class="slider-items-products">
-                <div id="special-products-slider" class="product-flexslider hidden-buttons">
-                    <div class="slider-items slider-width-col4">
-                        @foreach ($productByCate2 as $prdcate)
-                            @foreach ($prdcate as $val)
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
-                                            @if ($val->new == 1)
-                                                <div class="icon-new-label new-right">New</div>
-                                            @endif
-                                            <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
-                                                    <figure>
-                                                        <img class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                        <img class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                    </figure>
-                                                </a>
-                                                <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span></button>
-                                                <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
-                                                <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"><a href="#"><i class="fa fa-heart"></i></a></div>
-                                                    <div class="mt-button add_to_compare"> <a href="#"> <i class="fa fa-signal"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $val->id) }}"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title">
-                                                    <a title="{{ $val->name }}" href="#">{{ $val->name }} </a>
-                                                </div>
-                                                <div class="item-content">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="related-product-area">
+                <div class="page-header">
+                    <h2>Màn Chụp Trẻ Em</h2>
+                </div>
+                <div class="related-products-pro">
+                    <div class="slider-items-products">
+                        <div id="related-product-slider" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col4">
+                                @foreach ($productByCate2 as $prdcate)
+                                    @foreach ($prdcate as $val)
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
+                                                    @if ($val->new == 1)
+                                                        <div class="icon-new-label new-right">New</div>
+                                                    @endif
+                                                    <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
+                                                            <figure>
+                                                                <img style="width: 250px; height: 250px" class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                                <img style="width: 250px; height: 250px" class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                            </figure>
+                                                        </a>
+                                                        <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span></button>
+                                                        <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
+                                                        <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                     </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            @if ($val->price_sale >0)
-                                                                <p class="special-price"><span class="price-label">Special Price</span><span class="price">{{ number_format($val->price_sale) }} đ</span></p>
-                                                                <p class="old-price"><span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
-                                                            @else
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
-                                                            @endif
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"><a><i class="fa fa-heart"></i></a></div>
+                                                            <div class="mt-button add_to_compare"> <a> <i class="fa fa-signal"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $val->id) }}"> <i class="fa fa-search"></i> </a> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title">
+                                                            <a title="{{ $val->name }}">{{ $val->name }} </a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <div class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box">
+                                                                    @if ($val->price_sale >0)
+                                                                        <p class="special-price"><span class="price-label">Special Price</span><span class="price">{{ number_format($val->price_sale) }} đ</span></p>
+                                                                        <p class="old-price"><span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
+                                                                    @else
+                                                                    <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price) }} đ</span> </p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -322,72 +325,76 @@
     </div>
 </div>
 <div class="container">
-    <div class="special-products">
-        <div class="page-header">
-            <h2>Màn Chụp Khung Không Khoan Tường</h2>
-        </div>
-        <div class="special-products-pro">
-            <div class="slider-items-products">
-                <div id="special-products-slider" class="product-flexslider hidden-buttons">
-                    <div class="slider-items slider-width-col4">
-                        @foreach ($productByCate3 as $prdcate)
-                            @foreach ($prdcate as $val)
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
-                                            @if ($val->new == 1)
-                                                <div class="icon-new-label new-right">New</div>
-                                            @endif
-                                            <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
-                                                    <figure>
-                                                        <img class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                        <img class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
-                                                    </figure>
-                                                </a>
-                                                <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
-                                                <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
-                                                <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"><a href="#"><i class="fa fa-heart"></i></a></div>
-                                                    <div class="mt-button add_to_compare"><a href="#"> <i class="fa fa-signal"></i></a></div>
-                                                    <div class="mt-button quick-view"><a href="{{ route('client.product.info', $val->id) }}"><i class="fa fa-search"></i></a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title">
-                                                    <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">{{ $val->name }} </a>
-                                                </div>
-                                                <div class="item-content">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="related-product-area">
+                <div class="page-header">
+                    <h2>Màn Chụp Không Khoan Tường</h2>
+                </div>
+                <div class="related-products-pro">
+                    <div class="slider-items-products">
+                        <div id="related-product-slider" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col4">
+                                @foreach ($productByCate3 as $prdcate)
+                                    @foreach ($prdcate as $val)
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-sale-label sale-left">-{{ 100-number_format($val->price_sale/$val->price*100) }}%</div>
+                                                        @if ($val->new == 1)
+                                                            <div class="icon-new-label new-right">New</div>
+                                                        @endif
+                                                    <div class="pr-img-area"> <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">
+                                                            <figure>
+                                                                <img style="width: 250px; height: 250px" class="first-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                                <img style="width: 250px; height: 250px" class="hover-img" src="{{ $val->image }}" alt="{{ $val->name }}">
+                                                            </figure>
+                                                        </a>
+                                                        <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
+                                                        <input class="product_id" name="product_id" value="{{ $val->id }}" type="hidden">
+                                                        <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                     </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            @if ($val->price_sale >0)
-                                                                <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price_sale) }} đ</span> </p>
-                                                                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span>
-                                                            </p>
-                                                            @else
-                                                                <p class="special-price"><span class="price-label">Special Price</span><span class="price">{{ number_format($val->price) }} đ</span> </p>
-                                                            @endif
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"><a><i class="fa fa-heart"></i></a></div>
+                                                            <div class="mt-button add_to_compare"><a> <i class="fa fa-signal"></i></a></div>
+                                                            <div class="mt-button quick-view"><a href="{{ route('client.product.info', $val->id) }}"><i class="fa fa-search"></i></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title">
+                                                            <a title="{{ $val->name }}" href="{{ route('client.product.info', $val->id) }}">{{ $val->name }} </a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <div class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box">
+                                                                    @if ($val->price_sale >0)
+                                                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price">{{ number_format($val->price_sale) }} đ</span> </p>
+                                                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">{{ number_format($val->price) }} đ</span>
+                                                                    </p>
+                                                                    @else
+                                                                        <p class="special-price"><span class="price-label">Special Price</span><span class="price">{{ number_format($val->price) }} đ</span> </p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -421,11 +428,9 @@
                                     của mình hiện nay đang sử dụng những sản phẩm Kinh Bắc được gần 5-6 năm rồi. Thật sự
                                     quá tốt và chất lượng so với những sản phẩm không có tên tuổi hiện nay"
                                 </p>
+                                <hr>
                                 <span class="blog-likes"><i class="fa fa-heart"></i> 149 likes</span>
-                                <span class="blog-comments"><i class="fa fa-comment"></i> 80 comments</span>
-                                <div class="blog-action"> <span>Jan, 20, 2017</span>
-                                    <a class="read-more" href="single_post.html">read more</a>
-                                </div>
+                                <span class="blog-comments">18/12/2019</span>
                             </div>
                         </div>
                     </div>
@@ -445,8 +450,8 @@
                                     đảm bảo đặc biệt là sản phẩm dành cho trẻ em. Chất màn mịn, mềm sờ vào cực thích.
                                     Sản phẩm của Kinh Bắc thì chất lượng là số 1 không thể phủ nhận rồi.
                                 </p>
-                                <span class="blog-likes"><i class="fa fa-heart"></i> 89 likes</span><span class="blog-comments"><i class="fa fa-comment"></i> 10 comments</span>
-                                <div class="blog-action"><span>May, 25, 2017</span> <a class="read-more" href="single_post.html">read more</a> </div>
+                                <hr>
+                                <span class="blog-likes"><i class="fa fa-heart"></i> 219 likes</span><span class="blog-comments"></i>14/11/2019</span>
                             </div>
                         </div>
                     </div>
@@ -465,8 +470,8 @@
                                     lắp thêm toàn bộ giường ở nhà là màn khung cho đẹp và tiện hơn. Nhưng chắc chắn sẽ
                                     chọn của Kinh Bắc thôi. Vì các hãng khác bác không thấy chất lượng bằng.
                                 </p>
-                                <span class="blog-likes"><i class="fa fa-heart"></i> 149 likes</span> <span class="blog-comments"><i class="fa fa-comment"></i> 80 comments</span>
-                                <div class="blog-action"> <span>Jan, 20, 2017</span> <a class="read-more" href="single_post.html">read more</a> </div>
+                                <hr>
+                                <span class="blog-likes"><i class="fa fa-heart"></i> 369 likes</span> <span class="blog-comments">12/11/2019</span>
                             </div>
                         </div>
                     </div>
@@ -485,8 +490,8 @@
                         <div class="jtv-product">
                             <div class="product-img">
                                 <a href="{{ route('client.product.info', $prd4->id) }}">
-                                    <img src="{{ $prd4->image }}" alt="{{ $prd4->name }}">
-                                    <img class="secondary-img" src="{{ $prd4->image }}" alt="{{ $prd4->name }}">
+                                    <img style="width: 110px; height: 110px;" src="{{ $prd4->image }}" alt="{{ $prd4->name }}">
+                                    <img style="width: 110px; height: 110px;" class="secondary-img" src="{{ $prd4->image }}" alt="{{ $prd4->name }}">
                                 </a>
                             </div>
                             <div class="jtv-product-content">
@@ -508,7 +513,7 @@
                                             <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                         </div>
                                         <a href="{{ route('client.product.info', $prd4->id) }}" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a><i class="fa fa-heart"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -524,8 +529,8 @@
                         <div class="jtv-product">
                             <div class="product-img">
                                 <a href="{{ route('client.product.info', $prd5->id) }}">
-                                    <img src="{{ $prd5->image }}" alt="{{ $prd5->name }}">
-                                    <img class="secondary-img" src="{{ $prd5->image }}" alt="{{ $prd5->name }}">
+                                    <img style="width: 110px; height: 110px;" src="{{ $prd5->image }}" alt="{{ $prd5->name }}">
+                                    <img style="width: 110px; height: 110px;" class="secondary-img" src="{{ $prd5->image }}" alt="{{ $prd5->name }}">
                                 </a>
                             </div>
                             <div class="jtv-product-content">
@@ -547,7 +552,7 @@
                                             <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                         </div>
                                         <a href="{{ route('client.product.info', $prd5->id) }}" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a><i class="fa fa-heart"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -563,8 +568,8 @@
                         <div class="jtv-product">
                             <div class="product-img">
                                 <a href="{{ route('client.product.info', $prd6->id) }}">
-                                    <img src="{{ $prd6->image }}" alt="{{ $prd6->name }}">
-                                    <img class="secondary-img" src="{{ $prd6->image }}" alt="{{ $prd6->name }}">
+                                    <img style="width: 110px; height: 110px;" src="{{ $prd6->image }}" alt="{{ $prd6->name }}">
+                                    <img style="width: 110px; height: 110px;" class="secondary-img" src="{{ $prd6->image }}" alt="{{ $prd6->name }}">
                                 </a>
                             </div>
                             <div class="jtv-product-content">
@@ -586,7 +591,7 @@
                                             <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                         </div>
                                         <a href="{{ route('client.product.info', $prd6->id) }}" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a><i class="fa fa-heart"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -595,6 +600,38 @@
                     @endforeach
                 </div>
             </div>
+        </div>
+        <div class="row">
+                <div class="jtv-service-area"> 
+                    <div class="col-md-4 col-sm-4">
+                        <div class="jtv-single-service">
+                            <div class="service-icon"> <img alt="Dịch Vụ 24/7" src="{{ asset('bower_components/assets-client-ecom/images/customer-service-icon.png') }}"> </div>
+                            <div class="service-text">
+                                <h2>Dịch Vụ 24/7</h2>
+                                <p><span>Số Điện Thoại Chăm Sốc: 096 862 56 79</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="jtv-single-service">
+                            <div class="service-icon"> <img alt="Vận Chuyển Nhanh" src="{{ asset('bower_components/assets-client-ecom/images/shipping-icon.png') }}"> </div>
+                            <div class="service-text">
+                            <h2>Vận Chuyển Nhanh</h2>
+                            <p><span> Ship COD toàn quốc, thanh toán khi nhận hàng</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="jtv-single-service">
+                            <div class="service-icon"> <img alt="Bảo Hành 1 Đổi 1" src="{{ asset('bower_components/assets-client-ecom/images/guaratee-icon.png') }}"> </div>
+                            <div class="service-text">
+                            <h2>Bảo Hành 1 Đổi 1</h2>
+                            <p><span>Bảo Hành Trong 1 Năm</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
         </div>
     </div>
 </div>

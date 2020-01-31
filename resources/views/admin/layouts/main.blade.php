@@ -18,6 +18,8 @@
     <link href="{{ asset('/bower_components/assets-admin-ecom/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/bower_components/assets-admin-ecom/vendor/summernote/dist/summernote-bs4.css') }}"  rel="stylesheet">
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('/bower_components/sweetalert2/') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 
 <body>
@@ -32,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <script src="{{ asset('/bower_components/assets-admin-ecom/js/vendor.js') }}"></script>
     <script src="{{ asset('/bower_components/assets-admin-ecom/js/app.min.js') }}"></script>
     <script src="{{ asset('/bower_components/assets-admin-ecom/vendor/summernote/dist/summernote-bs4.min.js') }}"></script>
@@ -90,7 +91,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        
         $(document).ready(function() {
             $('#prd_img').click(function(){
                 $('#img').click();
@@ -109,9 +109,42 @@
             });
         });
         $(document).ready(function () {
-            $('.checkconfirm').on('click', function(){
-                var conf = confirm("Bạn có chắc chắn muốn thực hiện ?");
-                return conf;
+            $('.checkconfirm').on('click', function(e){
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                    })
+                    e.preventDefault();
+                    swalWithBootstrapButtons.fire({
+                    title: 'Bạn Chắc Chắn Muốn Xóa?',
+                    text: "Sau Khi Xóa Dữ Liệu Này Sẽ Mất! Bạn Chắc Chắn Muốn Thực Hiện!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Đồng Ý!',
+                    cancelButtonText: 'Hủy Bỏ!',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.value) {
+                        swalWithBootstrapButtons.fire(
+                            'Xóa Thành Công!',
+                            'Bạn Đã Xóa File Thành Công!',
+                            'success'
+                        )
+                        $(this).parents('.test_tr').find('.test').click();
+                    } else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                        'Hủy Bỏ!',
+                        'Bạn Đã Hủy Bỏ! Dữ Liệu Sẽ Được Dữ Lại!',
+                        'error'
+                        )
+                    }
+                })
             });
         })
     </script>
@@ -126,9 +159,13 @@
         config.entities_latin = false;
         CKEDITOR.replace('content', config);
     </script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").click(function(e) {
+                e.preventDefault();
+                $("#logout-form").submit();
+            });
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from themenate.com/applicator/dist/index-saas.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jul 2018 12:00:49 GMT -->
-
 </html>

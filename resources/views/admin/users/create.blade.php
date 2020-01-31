@@ -18,63 +18,63 @@
                 <h4 class="card-title">Form Validation</h4>
             </div>
             <div class="card-body">
-                <form role="form" id="form-validation">
+                <form role="form" id="form-validation" action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label control-label">User Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name" placeholder="Enter User Name!">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter User Name!" required value="{{ old('name') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">User
-                                    Mail</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">User Mail</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="email" placeholder="Enter User Mail"
-                                        required value="{{ old('email') }}">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter User Mail" required value="{{ old('email') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label style="font-size: 15px"
-                                    class="col-sm-2 col-form-label control-label">Password</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Password</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="password" placeholder="Enter Password"
-                                        required value="{{ old('password') }}">
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required value="{{ old('password') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Confirm
-                                    Password</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Confirm Password</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="repassword"
-                                        placeholder="Enter Confirm Password" required value="{{ old('repassword') }}">
+                                    <input type="password" class="form-control" name="repassword" placeholder="Enter Confirm Password" required value="{{ old('repassword') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label style="font-size: 15px"
-                                    class="col-sm-2 col-form-label control-label">Phone</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Phone</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="phone"
-                                        placeholder="Enter Name Product Price Sale" required value="{{ old('phone') }}">
+                                    <input type="number" class="form-control" name="phone" placeholder="Enter Phone" required value="{{ old('phone') }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label style="font-size: 15px"
-                                    class="col-sm-2 col-form-label control-label">Address</label>
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Address</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="address"
-                                        placeholder="Enter Name Product Price Sale" required
-                                        value="{{ old('address') }}">
+                                    <input type="text" class="form-control" name="address" placeholder="Enter Address" required value="{{ old('address') }}">
                                 </div>
                             </div>
-                            <button class="btn btn-gradient-success">Submit</button>
+                            <div class="form-group row">
+                                <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Quyền</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="role" id="">
+                                        <option value="0" selected >Khách</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">Supper Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-gradient-success">Submit</button>
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-5">
                             <label style="font-size: 15px" class="col-sm-2 col-form-label control-label">Avatar</label>
                             <div class="form-group row">
-                                <input onchange="changeImg(this)" id="img" type="file" name="image" class="form-control d-none" required>
+                                <input onchange="changeImg(this)" id="img" type="file" name="avatar" class="form-control d-none">
                                 <img class="img-fluid" style="border: double" width="300px" src="/image/plus-img.jpg" id="prd_img" alt="">
                             </div>
                         </div>

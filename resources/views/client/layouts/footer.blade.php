@@ -11,18 +11,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="social col-md-4 col-sm-5">
-                    <ul class="inline-mode">
-                        <li class="social-network fb">
-                            <a title="Connect us on Facebook" target="_blank" href="https://www.facebook.com/manchupkinhbac/">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <a style="color: white; font-size: 15px" title="Connect us on Facebook" target="_blank" href="https://www.facebook.com/manchupkinhbac/">
-                            FanPage: Màn Chụp Kinh Bắc
-                        </a>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -74,10 +62,12 @@
             </div>
             <div class="col-sm-6 col-md-2 col-xs-12 col-lg-3 collapsed-block">
                 <div class="footer-links">
-                    <h3 class="links-title">TỔNG ĐÀI HỖ TRỢ<a class="expander visible-xs" href="#TabBlock-4">+</a></h3>
+                    <h3 class="links-title">FanPage<a class="expander visible-xs" href="#TabBlock-4">+</a></h3>
                     <div class="tabBlock" id="TabBlock-4">
                         <ul class="list-links list-unstyled">
-                            <li> <a href="tel:096 862 56 79">096 862 56 79</a> </li>
+                            <li>
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fhttps%3A%2F%2Fwww.facebook.com%2Fmanchupkinhbac&tabs&width=262&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2352537814963465" width="262" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </li>
                         </ul>
                     </div>
                 </div>

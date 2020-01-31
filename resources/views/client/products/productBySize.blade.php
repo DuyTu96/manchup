@@ -6,7 +6,7 @@
             <div class="col-xs-12">
                 <ul>
                     <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
-                    <li class=""> <a title="Go to Home Page" href="#">Sản Phẩm</a><span>&raquo;</span>
+                    <li class=""> <a title="Go to Home Page">Sản Phẩm</a><span>&raquo;</span>
                     </li>
                     <li><strong>Sản Phẩm Size {{ $size->size }}</strong></li>
                 </ul>
@@ -25,8 +25,8 @@
                     <div class="toolbar">
                         <div class="view-mode">
                             <ul>
-                                <li class="active"> <a href="#"> <i class="fa fa-th-large"></i> </a> </li>
-                                <li> <a href="#"> <i class="fa fa-th-list"></i> </a> </li>
+                                <li class="active"> <a> <i class="fa fa-th-large"></i> </a> </li>
+                                <li> <a> <i class="fa fa-th-list"></i> </a> </li>
                             </ul>
                         </div>
                         <div class="sorter">
@@ -57,24 +57,25 @@
                                     <div class="product-item">
                                         <div class="item-inner">
                                             <div class="product-thumbnail">
-                                                <div class="icon-sale-label sale-left">Sale</div>
-                                                <div class="icon-new-label new-right">New</div>
+                                                <div class="icon-sale-label sale-left"> -{{ 100-number_format($value->price_sale/$value->price*100) }}%</div>
+                                                @if ($value->new == 1)
+                                                    <div class="icon-new-label new-right">New</div>
+                                                @endif
                                                 <div class="pr-img-area">
                                                     <a title="Ipsums Dolors Untra" href="{{ route('client.product.info', $value->id) }}" >
                                                         <figure>
-                                                            <img class="first-img" src="{{ $value->image }}"
-                                                                alt=""> <img class="hover-img"
-                                                                src="{{ $value->image }}" alt="">
+                                                            <img style="width: 250px; height: 250px;" class="first-img" src="{{ $value->image }}" alt="">
+                                                            <img style="width: 250px; height: 250px;" class="hover-img" src="{{ $value->image }}" alt="">
                                                         </figure>
                                                     </a>
-                                                    <button type="button" class="add-to-cart-mt"> <i
-                                                            class="fa fa-shopping-cart"></i><span> Add to Cart</span>
-                                                    </button>
+                                                    <button type="button" class="add-to-cart-mt addToCart"> <i class="fa fa-shopping-cart"></i><span> Thêm Vào Giỏ Hàng</span> </button>
+                                                    <input class="product_id" name="product_id" value="{{ $value->id }}" type="hidden">
+                                                    <input type="hidden" class="qty num-product" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                                                 </div>
                                                 <div class="pr-info-area">
                                                     <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a href="#"> <i class="fa fa-heart"></i> </a> </div>
-                                                        <div class="mt-button add_to_compare"> <a href="#"> <i class="fa fa-signal"></i> </a> </div>
+                                                        <div class="mt-button add_to_wishlist"> <a> <i class="fa fa-heart"></i> </a> </div>
+                                                        <div class="mt-button add_to_compare"> <a> <i class="fa fa-signal"></i> </a> </div>
                                                         <div class="mt-button quick-view"> <a href="{{ route('client.product.info', $value->id) }}"> <i class="fa fa-search"></i> </a> </div>
                                                     </div>
                                                 </div>

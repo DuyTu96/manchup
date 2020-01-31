@@ -43,7 +43,10 @@
                                                     <span class="summed-price">{{ number_format($cart['num_price']) }} VND</span>
                                                     <input type="hidden" name="num_price" value="{{ $cart['num_price'] }}">
                                                 </td>
-                                                <td class="action"><a href="#"><i class="btn btn-danger btn-sm fa fa-trash-o deleteCart"></i></a></td>
+                                                <td class="action">
+                                                    <a href="#"><i class="btn btn-danger btn-sm fa fa-trash-o deleteCart"></i></a>
+                                                    <button style="display: none" class="test_cart">test</button>
+                                                </td>
                                                 <input class="product_id" name="product_id" value="{{ $cart['product_id'] }}" type="hidden">
                                             </tr>
                                             @php $subToTal = $subToTal + $cart['product_num'] * $cart['product_price'] @endphp
