@@ -36,7 +36,7 @@
             </li>
             <li class="mt-root">
                 <div class="mt-root-item">
-                    <a href="contact_us.html">
+                    <a href="{{ route('client.post') }}">
                         <div class="title title_font"><span style="color: white" class="title-text">Khuyến Mại</span> </div>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
             </li>
             <li class="mt-root">
                 <div class="mt-root-item">
-                    <a href="about_us.html">
+                    <a href="{{ route('client.info') }}">
                         <div class="title title_font"><span style="color: white" class="title-text">Giới Thiệu</span></div>
                     </a>
                 </div>

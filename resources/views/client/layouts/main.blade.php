@@ -35,6 +35,7 @@
     <link href="{{ asset('bower_components/assets-client-ecom/css/revolution-slider.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/assets-client-ecom/css/style.css') }}"
         media="all">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 

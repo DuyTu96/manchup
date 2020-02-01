@@ -9,7 +9,7 @@
                     <span class="icon-holder">
                         <i class="mdi mdi-gauge"></i>
                     </span>
-                    <span class="title">Dashboard</span>
+                    <span class="title">Trang Chủ</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -17,17 +17,17 @@
                     <span class="icon-holder">
                         <i class="mdi mdi-account"></i>
                     </span>
-                    <span class="title">Users</span>
+                    <span class="title">Tài Khoản</span>
                     <span class="arrow">
                         <i class="mdi mdi-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="{{ route('admin.users.index') }}">List User</a>
+                        <a href="{{ route('admin.users.index') }}">Danh Sách Tài Khoản</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.users.create') }}">Create User</a>
+                        <a href="{{ route('admin.users.create') }}">Tạo Tài Khoản</a>
                     </li>
                 </ul>
             </li>
@@ -36,17 +36,17 @@
                     <span class="icon-holder">
                         <i class="mdi mdi-view-list"></i>
                     </span>
-                    <span class="title">Categories</span>
+                    <span class="title">Danh Mục</span>
                     <span class="arrow">
                         <i class="mdi mdi-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="{{ route('admin.categories.index') }}">List Category</a>
+                        <a href="{{ route('admin.categories.index') }}">Danh Sách Danh Mục</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.categories.create') }}">Create Category</a>
+                        <a href="{{ route('admin.categories.create') }}">Tạo Danh Mục</a>
                     </li>
                 </ul>
             </li>
@@ -55,17 +55,17 @@
                     <span class="icon-holder">
                         <i class="mdi mdi-dropbox"></i>
                     </span>
-                    <span class="title">Products</span>
+                    <span class="title">Sản Phẩm</span>
                     <span class="arrow">
                         <i class="mdi mdi-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="{{ route('admin.products.index') }}">List Product</a>
+                        <a href="{{ route('admin.products.index') }}">Danh Sách Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.products.create') }}">Create Product</a>
+                        <a href="{{ route('admin.products.create') }}">Thêm Sản Phẩm</a>
                     </li>
                 </ul>
             </li>
@@ -74,21 +74,39 @@
                     <span class="icon-holder">
                         <i class="mdi mdi-cart-outline"></i>
                     </span>
-                    <span class="title">Orders</span>
+                    <span class="title">Đơn Hàng</span>
                     <span class="arrow">
                         <i class="mdi mdi-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="{{ route('admin.orders.index') }}">List Orders</a>
+                        <a href="{{ route('admin.orders.index') }}">Danh Sách Đơn Hàng</a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.orders.processed') }}">Orders Processed</a>
+                        <a href="{{ route('admin.orders.processed') }}">Xử Lý Đơn Hàng</a>
                     </li>
                 </ul>
             </li>
-
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="mdi mdi-stackoverflow"></i>
+                    </span>
+                    <span class="title">Khuyến Mại</span>
+                    <span class="arrow">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ route('admin.posts.index') }}">Danh Sách Khuyến Mại</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.posts.create') }}">Tạo Bài Khuyến Mại</a>
+                    </li>
+                </ul>
+            </li>
             <li class="side-nav-header">
                 <span>Others</span>
             </li>

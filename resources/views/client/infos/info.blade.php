@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <ul>
-                    <li class="home"> <a title="Go to Home Page" href="/">Trang Chu</a><span>&raquo;</span>
+                    <li class="home"> <a title="Go to Home Page" href="/">Trang Chủ</a><span>&raquo;</span>
                     </li>
 
-                    <li><strong>Thong Tin</strong></li>
+                    <li><strong>Giới Thiệu</strong></li>
                 </ul>
             </div>
         </div>

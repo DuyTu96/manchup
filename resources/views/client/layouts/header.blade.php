@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-6 hidden-xs">
                         <div class="welcome-msg "><i class="fa fa-phone"></i> Giao Hàng Toàn Quốc</div>
-                        <span class="phone hidden-sm">Mùng tự bung Bảo Lộc giá rẻ chất lượng bất ngờ!</span>
+                        <span class="phone hidden-sm">Mùng tự bung Kinh Bắc giá rẻ chất lượng bất ngờ!</span>
                     </div>
                     <div class="headerlinkmenu col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="links">
@@ -37,8 +37,8 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 col-md-3 col-xs-12">
-                    <div style="margin-top: 15px " class="logo"><a title="e-commerce" href="/"><img alt="responsive theme logo" src="{{ asset('image/logo.png') }}"></a> </div>
+                <div class="col-sm-4 col-md-4 col-xs-12">
+                    <div class="logo"><a title="e-commerce" href="/"><b style="color:#0062bd;">Màn Kinh Bắc</b></div>
                 </div>
                 <div class="col-xs-9 col-sm-6 col-md-6">
                     <div class="top-search">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-xs-3 top-cart">
+                <div class="col-lg-2 col-xs-3 top-cart">
                     <div class="top-cart-contain">
                         <div class="mini-cart">
                             <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
