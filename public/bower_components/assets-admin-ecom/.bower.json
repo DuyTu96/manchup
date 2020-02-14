@@ -1,0 +1,14 @@
+{
+  "name": "assets-admin-ecom",
+  "homepage": "https://github.com/DinhDuyTu/assets-admin-ecom",
+  "_release": "d16c49253b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d16c49253beb03e3f0ff97676f716ace286e1c5b"
+  },
+  "_source": "https://github.com/DinhDuyTu/assets-admin-ecom.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/DinhDuyTu/assets-admin-ecom.git",
+  "_direct": true
+}

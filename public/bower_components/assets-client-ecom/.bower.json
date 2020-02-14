@@ -1,0 +1,14 @@
+{
+  "name": "assets-client-ecom",
+  "homepage": "https://github.com/DinhDuyTu/assets-client-ecom",
+  "_release": "1a02335868",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1a023358685cfe448b0a62f998ccc8bd26442641"
+  },
+  "_source": "https://github.com/DinhDuyTu/assets-client-ecom.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/DinhDuyTu/assets-client-ecom.git",
+  "_direct": true
+}

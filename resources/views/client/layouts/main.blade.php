@@ -67,9 +67,9 @@
   logged_out_greeting="Chào Bạn! Chúng Tôi Có Thể Giúp Gì Được Cho Bạn!">
       </div>
 
-    <div class="load">
+    {{-- <div class="load">
         <img src="{{ asset('bower_components/assets-client-ecom/images/loading/1.gif') }}">
-    </div>
+    </div> --}}
     @include('client.layouts.mobile_menu')
     <div id="page">
         @include('client.layouts.header')
